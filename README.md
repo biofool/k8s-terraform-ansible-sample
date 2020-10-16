@@ -97,8 +97,9 @@ You also have to edit `./ansible/hosts/ec2.ini`, changing `regions = eu-west-1` 
 Run Terraform commands from `./terraform` subdirectory.
 
 ```
-$ terraform plan
-$ terraform apply
+terraform init
+terraform plan
+terraform apply
 ```
 
 Terraform outputs public DNS name of Kubernetes API and Workers public IPs.
