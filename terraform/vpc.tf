@@ -6,7 +6,7 @@ resource "aws_vpc" "kubernetes" {
   cidr_block = "${var.vpc_cidr}"
   enable_dns_hostnames = true
 
-  tags {
+  tags = {
     Name = "${var.vpc_name}"
     Owner = "${var.owner}"
   }
@@ -14,13 +14,13 @@ resource "aws_vpc" "kubernetes" {
 
 # DHCP Options are not actually required, being identical to the Default Option Set
 resource "aws_vpc_dhcp_options" "dns_resolver" {
-  domain_name = "${region}.compute.internal"
+#  domain_name = "${region}.compute.internal"
   domain_name_servers = ["AmazonProvidedDNS"]
-
-  tags {
-    Name = "${var.vpc_name}"
-    Owner = "${var.owner}"
-  }
+#
+#  tags = {
+#    Name = "${var.vpc_name}"
+#    Owner = "${var.owner}"
+#  }
 }
 
 resource "aws_vpc_dhcp_options_association" "dns_resolver" {
@@ -48,7 +48,7 @@ resource "aws_subnet" "kubernetes" {
   cidr_block = "${var.vpc_cidr}"
   availability_zone = "${var.zone}"
 
-  tags {
+  tags = {
     Name = "kubernetes"
     Owner = "${var.owner}"
   }
@@ -56,7 +56,7 @@ resource "aws_subnet" "kubernetes" {
 
 resource "aws_internet_gateway" "gw" {
   vpc_id = "${aws_vpc.kubernetes.id}"
-  tags {
+  tags = {
     Name = "kubernetes"
     Owner = "${var.owner}"
   }
@@ -75,7 +75,7 @@ resource "aws_route_table" "kubernetes" {
       gateway_id = "${aws_internet_gateway.gw.id}"
     }
 
-    tags {
+    tags = {
       Name = "kubernetes"
       Owner = "${var.owner}"
     }
@@ -135,7 +135,7 @@ resource "aws_security_group" "kubernetes" {
     cidr_blocks = ["${var.control_cidr}"]
   }
 
-  tags {
+  tags = {
     Owner = "${var.owner}"
     Name = "kubernetes"
   }

@@ -19,7 +19,7 @@ resource "aws_instance" "controller" {
     vpc_security_group_ids = ["${aws_security_group.kubernetes.id}"]
     key_name = "${var.default_keypair_name}"
 
-    tags {
+    tags = {
       Owner = "${var.owner}"
       Name = "controller-${count.index}"
       ansibleFilter = "${var.ansibleFilter}"
@@ -55,7 +55,7 @@ resource "aws_elb" "kubernetes_api" {
       interval = 30
     }
 
-    tags {
+    tags = {
       Name = "kubernetes"
       Owner = "${var.owner}"
     }
@@ -85,7 +85,7 @@ resource "aws_security_group" "kubernetes_api" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Owner = "${var.owner}"
     Name = "kubernetes-api"
   }
