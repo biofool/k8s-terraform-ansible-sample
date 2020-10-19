@@ -48,7 +48,7 @@ If you plan to use AWS CLI you have to set `AWS_DEFAULT_REGION`.
 
 Ansible expects the SSH identity loaded by SSH agent:
 ```
-$ ssh-add <keypair-name>.pem
+ssh-add <keypair-name>.pem
 ```
 
 ## Defining the environment
@@ -70,6 +70,13 @@ You may optionally redefine:
 
 
 The easiest way is creating a `terraform.tfvars` [variable file](https://www.terraform.io/docs/configuration/variables.html#variable-files) in `./terraform` directory. Terraform automatically imports it.
+
+I set 
+'''
+export TF_VAR_default_keypair_public_key=`cat ~/.ssh/id_rsa.pub`
+export TF_VAR_control_cidr="`curl https://api.ipify.org`/32"
+```
+Note I didn' test TF_VAR_control_cidr but it looks right
 
 Sample `terraform.tfvars`:
 ```
