@@ -3,12 +3,12 @@ variable control_cidr {
 }
 
 variable default_keypair_public_key {
-  description = "Public Key of the default keypair"
+  description = "MyKeyPair"
 }
 
 variable default_keypair_name {
   description = "Name of the KeyPair used for all nodes"
-  default = "k8s-not-the-hardest-way"
+  default = "MyKeyPair"
 }
 
 
@@ -54,7 +54,7 @@ variable kubernetes_pod_cidr {
 # Instances Setup
 variable amis {
   description = "Default AMIs to use for nodes depending on the region"
-  type = "map"
+  type = map(string)
   default = {
     ap-northeast-1 = "ami-0567c164"
     ap-southeast-1 = "ami-a1288ec2"
