@@ -1,11 +1,12 @@
 # Kubernetes not the hardest way (or "Provisioning a Kubernetes Cluster on AWS using Terraform and Ansible")
 Status:
 Terraform results
-
+```
 kubernetes_api_dns_name = kubernetes-392268079.us-west-1.elb.amazonaws.com
 kubernetes_workers_public_ip = 54.193.11.250,54.153.77.242,54.241.140.117,52.53.163.164
 ubuntu@ip-172-31-0-8:~/PycharmProjects/k8s-terraform-ansible-sample/terraform$ 
 ubuntu@ip-172-31-0-8:~/PycharmProjects/k8s-terraform-ansible-sample/terraform$ git status
+```
 
 A worked example to provision a Kubernetes cluster on AWS from scratch, using Terraform and Ansible. A scripted version of the famous tutorial [Kubernetes the hard way](https://github.com/kelseyhightower/kubernetes-the-hard-way).
 
