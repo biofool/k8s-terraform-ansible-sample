@@ -48,14 +48,16 @@ If you plan to use AWS CLI you have to set `AWS_DEFAULT_REGION`.
 
 Ansible expects the SSH identity loaded by SSH agent:
 ```
-$ ssh-add <keypair-name>.pem
+ssh-add <keypair-name>.pem
 ```
 
 ## Defining the environment
 
 Terraform expects some variables to define your working environment:
 
+export TF_VAR_control_cidr="`curl https://api.ipify.org`/32"  # will set your IP as the CIDR
 - `control_cidr`: The CIDR of your IP. All instances will accept only traffic from this address only. Note this is a CIDR, not a single IP. e.g. `123.45.67.89/32` (mandatory)
+export TF_VAR_default_keypair_public_key=`cat ~/.ssh/id_rsa.pub`   # will set this to the public half of your default ssh keys
 - `default_keypair_public_key`: Valid public key corresponding to the Identity you will use to SSH into VMs. e.g. `"ssh-rsa AAA....xyz"` (mandatory)
 
 **Note that Instances and Kubernetes API will be accessible only from the "control IP"**. If you fail to set it correctly, you will not be able to SSH into machines or run Ansible playbooks.
@@ -70,6 +72,13 @@ You may optionally redefine:
 
 
 The easiest way is creating a `terraform.tfvars` [variable file](https://www.terraform.io/docs/configuration/variables.html#variable-files) in `./terraform` directory. Terraform automatically imports it.
+
+I set 
+'''
+export TF_VAR_default_keypair_public_key=`cat ~/.ssh/id_rsa.pub`
+export TF_VAR_control_cidr="`curl https://api.ipify.org`/32"
+```
+Note I didn' test TF_VAR_control_cidr but it looks right
 
 Sample `terraform.tfvars`:
 ```
