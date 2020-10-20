@@ -8,7 +8,7 @@ variable default_keypair_public_key {
 
 variable default_keypair_name {
   description = "Name of the KeyPair used for all nodes"
-  default = "K8Deploy"
+  default = "MyKeyPair"
 }
 
 
@@ -37,7 +37,7 @@ variable region {
 }
 
 variable zone {
-  default = "eu-west-1a"
+  default = "eu-west-1b"
 }
 
 ### VARIABLES BELOW MUST NOT BE CHANGED ###
@@ -56,9 +56,6 @@ variable amis {
   description = "Default AMIs to use for nodes depending on the region"
   type = map(string)
   default = {
-    ap-northeast-1 = "ami-0567c164"
-    ap-southeast-1 = "ami-a1288ec2"
-    cn-north-1 = "ami-d9f226b4"
     eu-central-1 = "ami-8504fdea"
     eu-west-1 = "ami-0d77397e"
     sa-east-1 = "ami-e93da085"
