@@ -3,7 +3,11 @@ variable control_cidr {
 }
 
 variable default_keypair_public_key {
+<<<<<<< HEAD
   description = "K8Deploy"
+=======
+  description = "MyKeyPair"
+>>>>>>> 53a5a2e17c89e5291ebb6eda543e82fed3dca7d1
 }
 
 variable default_keypair_name {
