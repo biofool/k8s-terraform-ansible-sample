@@ -1,16 +1,20 @@
-# Mini Challenge 1
+<div align="center" id="overwatch">
+    <img src="./assets/kubesat.svg" alt="Overwatch" height="128px">
+</div>
 
-Deploy [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) on [AWS](https://docs.aws.amazon.com/) manually using [Terraform](https://www.terraform.io/docs/index.html) and [Ansible](https://docs.ansible.com/ansible/latest/index.html) for more control over Kubernetes clusters in the cloud. A monitoring solution comprised of [Prometheus](https://prometheus.io/docs/prometheus/latest/getting_started/) and [Grafana](https://grafana.com/docs/) gives more oversight of the deployment.
+# <div align="center">Mini Challenge 1</div>
+
+Deploy [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) on [AWS](https://docs.aws.amazon.com/) manually using [Terraform](https://www.terraform.io/docs/index.html) and [Ansible](https://docs.ansible.com/ansible/latest/index.html). Setup a monitoring solution using [Prometheus](https://prometheus.io/docs/prometheus/latest/getting_started/) and [Grafana](https://grafana.com/docs/) to gain oversight of the deployment.
 
 ## Introduction
 
-Deploying Kubernetes the 'hard way' using Terraform and Ansible allows the developer to exercise more control over their cluster(s).
+Deploying Kubernetes the 'hard way' using Terraform and Ansible allows the developer to exercise more control over their cluster(s). It is also significantly cheaper than using a managed service such as [Amazon EKS](https://aws.amazon.com/eks/pricing/).
 
-Terraform allow us to describe the target infrastructure; then it takes care of creating, modifying, or destroying any required resource(s) to match our blueprint.
+Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently. Configuration files describe to Terraform the components needed to run an application. Terraform generates an execution plan to reach the desired state, and then executes it to build the described infrastructure.
 
 Ansible is an IT automation tool. It can configure systems, deploy software, and orchestrate more advanced IT tasks such as continuous deployments or zero downtime rolling updates.
 
-Together, these tools allowed us to provision and deploy a manual Kubernetes cluster giving a developer more control over their systems. A monitoring solution and dashboard further enhance this control by giving the developer more oversight of the cluster.
+A monitoring solution comprised of Prometheus and Grafana provides the developer with more insight into their cluster's performance.
 
 ## System Diagram
 
@@ -33,3 +37,7 @@ The comprehensive set of setup instructions can be found in [`setup.md`](setup.m
 ## Contributors
 
 -   [Adam Alston](https://github.com/adamalston)
+-   [Kenneth Kron](https://github.com/biofool)
+-   [Zachari Ramos](https://github.com/zramos2)
+-   [Hari Ravichandran](https://github.com/hariravichandran)
+-   [Anthony Galassi](https://github.com/bendhouseart)
